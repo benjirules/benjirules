@@ -1,0 +1,863 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins';
+    background: darkslategray;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+.header{
+    font-family:  'Poppins'!important;
+    color: #0e89a0 !important;
+    text-align: center !important;
+    line-height: 1 !important;
+    padding: 0 10px !important;
+    margin-bottom: 40px !important;
+    width: 100%;
+    border-bottom: unset !important;
+}
+.activate{
+    background: #2980B9;
+    color: white;
+    padding: 5px 10px;
+}
+.deactivate{
+    background: red;
+    color: white;
+    padding: 5px 10px;
+}
+.fa-award {
+    color: red;
+}
+
+/* home page */
+.home {
+    width: 100%;
+    margin: 70px auto;
+    padding-top: 0;
+    position: relative;
+    background: black;
+    justify-content: center;
+}
+.home h2{
+    align-items: center;
+    padding-top: 30px;
+    text-align: center;
+    color: gold;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    box-shadow: 0 0 10px grey;
+    justify-content: center;
+    padding: 2% 0;
+    background: darkslategray;
+    color: white;
+}
+
+pre {
+    white-space: break-spaces;
+    font-family: inherit;
+    color: white;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+
+/* Image slider */
+
+/* Create the css for the image slider */
+
+.images-slider {
+    display: flex;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    background: url('../../../htdocs/avenging_panda.jpg');
+    background-size: cover;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#slides {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.slide {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 1;
+    background-size: cover !important;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+    transition: opacity 1s;
+}
+
+.showing {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide:nth-of-type(1) {
+    background: url("../movies/posters/avenging panda.jpg") no-repeat top;
+}
+
+.slide:nth-of-type(2) {
+    background: url("../movies/posters/avatar.jpg") no-repeat bottom;
+}
+
+.slide:nth-of-type(3) {
+    background: url("../movies/posters/terminator.jpg") no-repeat top;
+}
+
+.slide:nth-of-type(4) {
+    background: url("../movies/posters/panda wars.jpg") no-repeat top;
+}
+.slide:nth-of-type(5) {
+    background: url("../movies/posters/Night_in_paradise.jpg") no-repeat top;
+}
+
+/* end of slider */
+
+.middle {
+    display: flex;
+    flex-direction: column;
+    width: 96%;
+    align-items: flex-start;
+    box-shadow: 0 0 5px black;
+    margin: auto;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.middle h2 {
+    background: #000;
+    text-align: left;
+    color: white;
+    box-shadow: 0 0 5px black;
+    border-bottom: red;
+    margin-top: 20px;
+}
+
+.movies {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movies-inner {
+    width: 45%;
+    margin: 1%;
+    text-align: center;
+}
+
+.movies-inner p {
+    color: red;
+    font-size: 24px;
+    margin: 15px 0;
+    border-bottom: white 1px solid;
+    padding-bottom: 5px;
+}
+
+.movies-inner h4 {
+    font-size: 5vw;
+    color: white;
+    margin-top: 10px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal {
+    position: absolute;
+    z-index: 2;
+    max-height: 600px;
+    width: 90%;
+    top: 15%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: none;
+
+}
+
+.modal-show {
+    display: block;
+}
+
+.modal-img {
+    width: 25%;
+}
+
+.modal-img img {
+    width: 90%;
+    padding: 5%;
+}
+
+.modal-text {
+    width: 70%;
+    color: white;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: 2%;
+}
+
+.modal-top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.movie-review {
+    width: 90%;
+    color: white;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    margin: 10px auto;
+    height: 100%;
+    border-top: 1px solid white;
+    padding-top: 20px;
+}
+
+.movie-review-img {
+    width: 31%;
+    margin: auto;
+}
+
+.movie-review-desc {
+    width: 100%;
+    font-family: inherit;
+    padding: 2%;
+}
+
+.movies-inner:nth-child(7) {
+    display: none;
+}
+
+.movies-inner:nth-child(8) {
+    display: none;
+}
+
+.movies-inner:nth-child(9) {
+    display: none;
+}
+
+.movies-inner:nth-child(10) {
+    display: none;
+}
+
+.movies-inner:nth-child(11) {
+    display: none;
+}
+
+.movies-inner:nth-child(12) {
+    display: none;
+}
+
+
+.review-text {
+    width: 100%;
+    font-family: sans-serif;
+    white-space: pre-line;
+    padding-bottom: 2%;
+    color: slategray;
+}
+
+.review-inner p i {
+    color: #e69500;
+}
+
+/* Login Page */
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: black;
+}
+
+.login-form {
+    width: 320px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 7% 0;
+    background: rgba(0, 0, 0, 0.86);
+    box-shadow: 0 0 10px white;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+input {
+    width: 70%;
+    padding: 3% 0;
+    margin: 0.5% 0 2% 0;
+    text-align: center;
+    font-size: 20px;
+}
+
+.submit {
+    background: #e69500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.login-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-size: 24px;
+}
+
+.login-options a {
+    color: purple;
+    padding: 5% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+}
+
+.login-options a span {
+    text-decoration: underline;
+    color: purple;
+    font-weight: bold;
+}
+
+.login-form label {
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    margin: 10px 0 5px;
+}
+
+.login-form h4 {
+    color: white;
+}
+
+/* admin */
+.admin {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 0%;
+    position: relative;
+    background: white;
+    /*z-index: -1;*/
+}
+
+.admin-review {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    color: red;
+    align-items: center;
+    border-top: 1px solid lightgray;
+    padding: 10px 0;
+}
+
+.admin-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.admin-inner > .text {
+    width: 70%;
+    color: black;
+    padding: 20px;
+}
+
+.admin-inner > .img {
+    width: 60%;
+}
+
+.text pre {
+    color: black;
+}
+.img > .edit-options{font-size: 16px;}
+.users{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background: white;
+}
+.user-list{width:  80%;max-width: 1200px;display: flex;flex-wrap: wrap;}
+.user-details{
+    width: 20%;
+    box-shadow: 0 0 3px;
+    margin: 10px;
+    padding: 10px;
+}
+.user-details h4{color: red;}
+.user-details p{padding: 10px 0;}
+
+/******************************************
+Reviews
+******************************************/
+.reviews-wrapper .reviews:nth-child(even) {
+    background: lightgray;
+}
+
+.review-text {
+    color: white;
+    border-top: gray solid 1px;
+    margin-top: 3%;
+}
+
+.reviews-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    color: white;
+}
+
+.reviews {
+    padding: 2%;
+    color: white;
+}
+
+.middle h3 {
+    padding: 1% 0;
+    color: red;
+    margin-bottom: 10px;
+}
+
+.review-btn {
+    margin: 3% auto;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-bottom: red;
+    padding: 10px;
+    border-top: red;
+}
+
+.add-review {
+    background: white;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-review form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-review form input, .add-review form select, .add-review form textarea {
+    color: grey;
+    width: 300px;
+    border: 1px solid grey;
+    margin: 4% 0;
+}
+
+.review {
+
+}
+
+/*****************************************
+User
+******************************************/
+.user-home {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.user-review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2%;
+    text-align: justify;
+    border-bottom: 1px solid lightgray;
+    width: 60%;
+    margin-top: 20px;
+}
+
+.user-review-wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review-inner {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    color: white;
+}
+
+.review-inner > .img {
+    width: 20%;
+}
+
+.review-inner > .text {
+    width: 80%;
+    padding: 2%;
+    color: black;
+}
+
+.edit-options ul {
+    display: flex;
+    font-size: 30px;
+    list-style-type: none;
+}
+
+.edit-options ul li {
+    margin: 0 10%;
+    color: purple;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.add-review-form {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    padding-top: 2%;
+}
+
+/*****************************************
+Blog
+******************************************/
+.blog {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin: 20px auto 0 auto;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+.blog-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    align-items: center;
+    position: relative;
+}
+
+.blog-inner-img {width: 80%;}
+
+.blog-inner-text {
+    text-align: justify;
+    /* padding: 8% 1%; */
+    width: 80%;
+    color: white;
+}
+.blog h2{
+    color: red;
+    margin-bottom: 20px;
+}
+.blog-fixed{
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    margin: 0;
+}
+.blog-details{display: flex;flex-direction: column;align-items: center;}
+.blog-details h2{
+    color: red;
+}
+
+.details-inner{display: flex;flex-direction: row;width:  80%;margin: auto;}
+.details-inner-img{width: 30%;}
+.details-inner-text{width: 70%;display: flex;color: white;padding: 20px;flex-direction: column;}
+
+.login-form h1 {
+    color: black;
+    padding: 2% 0;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.show {
+    display: block !important;
+}
+
+.msg {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    background: white;
+    padding: 40px 60px;
+    border-radius: 10px;
+    display: none;
+    text-align: center;
+    border: 5px solid black;
+    box-shadow: 0 0 4px lightgrey;
+    top: 50%;
+}
+
+.msg p {
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.msg button, .msg a {
+    background: red;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.view-details {
+    padding: 3% 10%;
+    color: white;
+    border-bottom: red;
+}
+.feedback{
+    width: 70%;
+    padding: 10px;
+}
+
+@media screen and (min-width: 800px) {
+    .movies-inner {
+        width: 23%;
+        margin-bottom: 5%;
+        border-bottom: white solid 1px;
+        padding-bottom: 30px;
+    }
+
+    header {
+        display: flex;
+    }
+
+    .movies-inner h4 {
+        font-size: unset;
+    }
+
+    .movies-inner:nth-child(7) {
+        display: unset;
+    }
+
+    .movies-inner:nth-child(8) {
+        display: unset;
+    }
+
+    .movies-inner:nth-child(9) {
+        display: unset;
+    }
+
+    .movies-inner:nth-child(10) {
+        display: unset;
+    }
+
+    .movies-inner:nth-child(11) {
+        display: unset;
+    }
+
+    .movies-inner:nth-child(12) {
+        display: unset;
+    }
+
+    header {
+        background: url("../../../OneDrive/Music/Desktop/WilliamMovieWebsite/images/movies/VENOM_2.png") no-repeat center fixed;
+        background-size: cover;
+        min-height: 20vh;
+    }
+    /* admin */
+
+
+    .admin-inner {flex-direction: row;}
+
+
+
+    .admin-inner > .img {width: 20%;}
+    .blog {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin: 20px auto 0 auto;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+    .blog-inner {
+        width: 48%;
+        display: flex;
+        flex-direction: column;
+        padding: 1%;
+        align-items: center;
+    }
+
+    .blog-inner-img {width: 70%;margin-bottom: 20px;}
+
+    .blog-inner-text {
+        text-align: justify;
+        /* padding: 8% 1%; */
+        width: 70%;
+        color: white;
+    }
+    .blog h2{
+        margin-bottom: 20px;
+    }
+}
+
+/**********************************************
+Media query web
+ */
+
+@media screen and (min-width: 1200px) {
+    .movies-inner {
+        width: 18%;
+        margin: 3% 1%;
+    }
+
+    .images-slider {
+        height: 600px;
+    }
+
+    .movie-review {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .movie-review-img {
+        width: 25%;
+    }
+
+    .movie-review-desc {
+        width: 65%;
+    }
+
+    .review-inner {
+        color: white;
+    }
+
+    .review-text {
+        border-top: gray solid 1px;
+        margin-top: 3%;
+    }
+
+    .reviews-wrapper {
+        width: 70%;
+    }
+
+    .review-img {
+        width: 50%;
+    }
+
+    .middle h3 {
+        color: red;
+        font-size: 16px;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    /* admin */
+    .admin-inner > .text {
+        width: 70%;
+        color: black;
+    }
+    .blog {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 100%;
+        margin: 20px auto 0 auto;
+        border-top: 1px solid white;
+    }
+
+    .blog-inner {
+        width: 23%;
+        display: flex;
+        flex-direction: column;
+        padding: 1%;
+        align-items: center;
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    .blog-inner-img {width: 80%;margin-bottom: 20px;}
+
+    .blog-inner-text {
+        text-align: justify;
+        width: 80%;
+        color: white;
+    }
+    .blog h2{margin-bottom: 20px;}
+
+}
