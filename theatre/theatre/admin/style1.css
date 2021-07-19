@@ -1,0 +1,64 @@
+h1 {
+    font-family: 'Megrim', sans-serif;
+    font-size: 6rem;
+    color: white;
+    transform: skewY(-5deg);
+    text-align: center;
+    position: relative;
+    word-spacing: 3px;
+}
+
+h1::before {
+    content: '';
+    display: block;
+    height: 65%;
+    width: 49%;
+    position: absolute;
+    top: 105%;
+    left: 50%;
+    background: linear-gradient(to bottom, #9be15d, #00e3ae);
+    opacity: 0.8;
+    z-index: -1;
+    transform: skewY(370deg) translate(-50%, -50%);
+}
+
+h2{ font-family: 'Megrim', san-serif;
+    font-size: 3rem;
+    color: gold;
+    position: relative;
+    word-spacing: 3px;
+
+}
+
+.column {
+
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+* {box-sizing:border-box}
+
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+
+    .row > .column {
+        padding: 0 8px;
+    }
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
