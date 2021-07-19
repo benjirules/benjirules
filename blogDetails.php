@@ -5,36 +5,38 @@
 /** @var $db array */
 include_once '../partials/headerLogin.php';
 $conn = mysqli_connect($hn, $un, $pw, $db);
+$bid = $_GET['bid'];
 $stmt = $conn->prepare('SELECT  
-       id,
        b.b_title,
        b.b_description,
        b.b_img_path
     FROM finalweb.blog b
-    order by id DESC ');
+    where b.id = '.$bid.' ');
 $stmt->execute();
 $stmt->store_result();
-$stmt->bind_result( $bid, $blogTitle, $blogDesc, $blogImg);
+$stmt->bind_result( $blogTitle, $blogDesc, $blogImg);
 ?>
 <main class="home">
     <section class="middle">
-        <h2 class="header">LATEST BLOGS</h2>
-        <div class="blog">
+        <button id="go-back" class="review-btn"> < BACK </button>
+        <div class="blog-details">
             <?php while ($stmt->fetch()): ?>
-                <div class="blog-inner">
-                    <h2><?=$blogTitle?></h2>
-                    <div class="blog-inner-img">
+                <div class="details-inner">
+                    <div class="details-inner-img">
                         <img src="<?=ROOT_DIR?>images/movies/<?=$blogImg?>" alt="">
                     </div>
-                    <div class="blog-inner-text">
+                    <div class="details-inner-text">
+                        <h2 class="header"><?=$blogTitle?></h2>
                         <p><?=$blogDesc?></p>
                     </div>
-                    <button onclick="window.location.href='<?=ROOT_DIR?>blog/blogDetails.php?bid=<?=$bid?>'" class="review-btn"> Read Full Blog</button>
-
                 </div>
-
             <?php endwhile; ?>
         </div>
     </section>
 </main>
+<script>
+    document.getElementById('go-back').addEventListener('click', () => {
+        history.back();
+    });
+</script>
 <?php include_once '../partials/footer.php'; ?>
