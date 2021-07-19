@@ -1,40 +1,45 @@
-<?php
-/** @var $hn array */
-/** @var $un array */
-/** @var $pw array */
-/** @var $db array */
-include_once '../partials/headerLogin.php';
-$conn = mysqli_connect($hn, $un, $pw, $db);
-$stmt = $conn->prepare('SELECT  
-       id,
-       b.b_title,
-       b.b_description,
-       b.b_img_path
-    FROM finalweb.blog b
-    order by id DESC ');
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result( $bid, $blogTitle, $blogDesc, $blogImg);
-?>
-<main class="home">
-    <section class="middle">
-        <h2 class="header">LATEST BLOGS</h2>
-        <div class="blog">
-            <?php while ($stmt->fetch()): ?>
-                <div class="blog-inner">
-                    <h2><?=$blogTitle?></h2>
-                    <div class="blog-inner-img">
-                        <img src="<?=ROOT_DIR?>images/movies/<?=$blogImg?>" alt="">
-                    </div>
-                    <div class="blog-inner-text">
-                        <p><?=$blogDesc?></p>
-                    </div>
-                    <button onclick="window.location.href='<?=ROOT_DIR?>blog/blogDetails.php?bid=<?=$bid?>'" class="review-btn"> Read Full Blog</button>
+<?php include_once "../partials/headerLogin.php"; ?>
 
-                </div>
 
-            <?php endwhile; ?>
-        </div>
-    </section>
-</main>
-<?php include_once '../partials/footer.php'; ?>
+    <main class="login register">
+        <h2 class="header">CONTACT US</h2>
+        <section class="lrm">
+            <form action="contact.php" method="post" class="">
+                <label for="name">Name</label>
+                <input type="text" class="" name="name" id="name" placeholder="" required>
+                <label for="email">Email</label>
+                <input type="email" class="" name="email" id="email" placeholder="" required>
+                <label for="feedback">Give us feedback</label>
+                <textarea id="feedback" name="feedback" class="feedback" rows="10" required></textarea>
+
+                <input type="submit" class="submit" value="Send Feedback">
+            </form>
+
+            <div class="msg"></div>
+        </section>
+
+
+    </main>
+    <script>
+        let form = document.querySelector('.register form');
+        form.onsubmit = function(event) {
+            event.preventDefault();
+            let form_data = new FormData(form);
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action, true);
+            xhr.onload = function () {
+                document.querySelector('.msg').innerHTML = this.responseText;
+                document.querySelector('.msg').classList.add('show');
+                let close = document.querySelector('.close');
+                close.addEventListener("click", function(){
+                    document.querySelector('.msg').classList.remove('show');
+                });
+
+            };
+
+            xhr.send(form_data);
+        };
+    </script>
+<?php include_once '../partials/footer.php';
+
+
